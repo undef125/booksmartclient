@@ -1,0 +1,87 @@
+.totalnavcontainer{
+    background-color: #60c3ad;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.navbarholder {
+    display: flex;
+    justify-content: center;
+}
+
+.innernav{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+.rightone{
+    display: flex;
+}
+.rightone > div {
+    margin: auto 1rem;
+    font-size: 1.1rem;
+}
+.rightone > a {
+    text-decoration: none;
+    margin: auto .5rem;
+    color: black;
+    font-size: 1.1rem;
+    color: white;
+}
+.inputnavholder{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgb(255, 252, 252);
+}
+.inputNav {
+    width: 70%;
+    justify-content: center;
+    padding: .4rem;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.inputNav > div{
+    width: 30rem;
+    margin: auto;
+}
+.inputNav > input  {
+    width: 35rem;
+    height: 30px;
+    border-radius: 10px 0px 0px 10px;
+    border: 0px;
+  box-sizing: border-box;
+
+}
+.inputNav > input:focus {
+    outline: 0px;
+}
+
+.inputNav button {
+    background-color: inherit;
+    position: absolute;
+    right: 0;
+}
+.leftone {
+    height: 80px;
+    width: 80px;
+    padding: .4rem;
+}
+.leftone > img {
+    height: 100%;
+    width: 100%;
+    object-fit: stretch;
+}
+.logout , .profile{
+    cursor: pointer;
+}
+#searchicon{
+    height:20px;
+    width:20px;
+    background:white;
+    padding:5px;
+    border-radius: 0px 10px 10px 0px;
+}

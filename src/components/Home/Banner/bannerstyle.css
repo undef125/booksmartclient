@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+.bannerHolder {
+    width: 100%;
+    height:80vh;
+    display: flex;
+    background-image: linear-gradient(to left, white,rgb(225, 240, 239));
+    
+}
+.bannerHolder > div{
+    width: 100%;
+}
+.bannerHolder > right{
+    height:50vh;
+    width:100%;
+}
+
+.bannerHolder > .right > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem 0;
+}
+.QUOTATION{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.3rem;
+    font-weight: 700;
+}
+.booksmart{
+    font-size: 2.3rem;
+    color: rgb(96, 195, 173);
+   font-weight: 600;
+}

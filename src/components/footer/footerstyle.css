@@ -1,0 +1,44 @@
+.footerholder{
+    background-color:rgba(128, 128, 128, 0.389);
+    height:17vh;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem;
+    position: sticky; 
+    top: 100%;
+}
+.logoholder{
+    height:17vh;
+    width:170px;
+}
+.logoholder > img{
+    height:100%;
+    width:100%;
+    object-fit: contain;
+}
+.iconsholder{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:15px;
+
+}
+.iconholder{
+    height:50px;
+    width:50px;
+}
+.iconholder>img{
+    height:100%;
+    width:100%;
+    object-fit: contain;
+}
+.copy{
+    font-size: 25px;
+}
+.footermiddle{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}

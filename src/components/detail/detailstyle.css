@@ -1,0 +1,43 @@
+.viewdetaildet{
+    display: flex;
+    width:80%;
+    height: 65vh;
+    margin: auto;
+    gap:70px;
+    padding:2rem;
+    box-sizing: border-box;
+}
+.imageHolderdet{
+    height: 55vh;
+    width: 500px;
+}
+.imageHolderdet > img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    border: 8px solid rgba(128, 128, 128, 0.219);
+}
+
+.rightdetailsectiondet{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    width:40%;
+    height: 53vh;
+    padding:1rem;
+    position: relative;
+}
+.rightdetailsectiondet > div {
+    display: flex;
+}
+
+.buttonchat{
+    width:50%;
+    position: absolute;
+    bottom: 0;
+    margin-left: 20%;
+}
+.bold{
+    font-size: 1rem;
+    font-weight: 600 ;
+}

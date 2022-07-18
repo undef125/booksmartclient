@@ -1,0 +1,12 @@
+.resultholder{
+    width: 90%;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.3rem; 
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+

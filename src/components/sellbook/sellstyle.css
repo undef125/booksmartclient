@@ -1,0 +1,83 @@
+input {
+  border: 1px solid black;
+}
+
+.formholder {
+  width: 85%;
+  margin: auto;
+  padding: 5rem;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+form > input {
+  height: 35px;
+  width: 300px;
+  border-radius: 10px;
+  border:3px solid rgba(149, 218, 203, 0.785); 
+  box-sizing:border-box;
+  position: relative;
+}
+form >input:focus{
+  
+  color:black;
+  outline:0px;
+}
+    
+.checkbox {
+  height: 20px;
+  width: 20px;
+  accent-color: rgba(149, 218, 203, 0.785);
+}
+.checkboxholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.facultyholder{
+  display: flex;
+}
+.submitbtn {
+  border-radius: 15px;
+  background-color: rgb(96, 195, 173);
+  height: 35px;
+  width: 200px;
+  font-size: 1.1rem;
+  border: 0px;
+}
+input[type="file"] {
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input::file-selector-button {
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  height: 28px;
+  background-color: rgb(96, 195, 173);
+  border: 0px;
+  position: absolute;
+  right: 0;
+}
+.radioholder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px
+}
+input[type="radio"] {
+  height: 25px;
+  accent-color: rgba(149, 218, 203, 0.785);
+}
+
+.heading{
+  display: block;
+}

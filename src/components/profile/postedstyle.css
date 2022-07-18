@@ -1,0 +1,174 @@
+/* .postedbookholder {
+    width: 90%;
+    margin: 2rem auto;
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    row-gap: 1rem;
+}
+.singlebook{
+    background-color: white;
+    position: relative;
+ }
+ .imageholder{
+    margin-bottom: .8rem;
+ }
+
+ .postedviewdetholder{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+ }
+ .singlebook button{
+     border-radius: 15px;
+     background-color: rgb(96, 195, 173);
+     height: 35px;
+     width: 200px;
+     font-size: 1.1rem;
+     border: 0px;
+     position: absolute;
+     bottom: 0;
+     cursor: pointer;
+     color: black;
+ }
+
+ .nameemailholder {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    gap: 2rem;
+    font-size: 1.2rem;
+    margin: 2rem auto;
+ }
+ h3{
+   text-align: center;
+ }
+ */
+ .postedbookholder{
+  width: 90%;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.3rem; 
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+ }
+ .editdelteholder{
+   width: 80%;
+   margin: .5rem auto;
+   display: flex;
+   justify-content: space-between;
+ }
+ .editholder,.deleteholder{
+   height: 25px;
+   width: 25px;
+   cursor: pointer;
+ }
+
+ .editholder > img, .deleteholder > img {
+   height: 100%;
+   width: 100%;
+ } 
+
+
+ .bookwraper{
+  width: 16rem;
+  height: auto;
+  padding: .5rem;
+  box-shadow: 1px 1px 4px black;
+  background-color: white;
+  border-radius: 10px 10px 3px 3px;
+}
+.singlebook{
+  position: relative;
+  /* height: 25rem; */
+}
+
+.viewdetholder{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+.singlebook button{
+  border-radius: 15px;
+  height: 35px;
+  width: 200px;
+  font-size: 1.1rem;
+  border: 0px;
+  cursor: pointer;
+  color: black;
+  position: absolute;
+  bottom: 0;
+}
+
+.imageholder{
+  width: 16rem;
+  height: 16rem;
+}
+.imageholder > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.booksname{
+  width: 50%;
+}
+
+.viewdetbtn {
+  width: 10rem;
+  border: 1px solid rgb(20, 18, 18);
+  margin: auto;
+}
+
+.wholefaculties >div{
+  display:flex;
+  width:80%;
+  margin:auto;
+  height:50vh;
+  padding:2rem;
+  justify-content: space-between;
+
+}
+.wholefaculties >div>div{
+  width:100%;
+
+}
+.imgholder{
+  height:80%;
+  width:80%;
+
+}
+.imgholder>img{
+  height: 100%;
+  width:100%;
+}
+
+.facultyname{
+  font-size:3rem ;
+  font-weight: 600;
+  text-align: center;
+}
+.btn{
+  width:400px;
+}
+.right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:15px;
+}
+.nameprice{
+  font-weight: 600;
+  height: 2rem;
+}
+.negotiable,.seller{
+  display: flex;
+  font-weight: 600;
+}

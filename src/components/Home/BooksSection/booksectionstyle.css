@@ -1,0 +1,15 @@
+.sectionHolder{
+     width: 80%;
+     margin: auto;
+     margin-top: 1rem;
+}
+
+.upper,.nameprice {
+    display: flex;
+    justify-content: space-between;
+}
+.booksHolder {
+    display: flex;
+    gap: .6rem;
+    width: 100%;
+} 
