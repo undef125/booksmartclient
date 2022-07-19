@@ -31,7 +31,7 @@ const PrivateRoute = ({isAuthenticated, ...props}) => {
 
 function App() {
 
-    const [isAuthenticated, setisAuthenticated] = useState(true);
+    const [isAuthenticated, setisAuthenticated] = useState(false);
 
     return (
         <DataProvider>

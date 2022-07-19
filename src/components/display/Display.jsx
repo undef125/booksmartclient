@@ -13,7 +13,7 @@ const DisplaySearched = ({ book }) => {
     <div className="bookwraper">
       <div className="singlebook">
         <div className="imageholder">
-          <img src={`http://localhost:5000/${book.image}`} alt="" />
+          <img src={`https://serverbooksmart.herokuapp.com/${book.image}`} alt="" />
         </div>
         <div className="nameprice">
           <div className="booksname">{book.name}</div>
