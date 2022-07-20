@@ -10,7 +10,7 @@ const Searched = () => {
   const { searchedData } = useContext(DataContext);
   const [books, setBooks] = useState([]);
   const [loader, setloader] = useState(false);
-  const [found, setfound] = useState(true);
+  const [notfound, setnotfound] = useState(false);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -30,6 +30,7 @@ const Searched = () => {
       } catch (error) {
         console.log("error: " + error);
         setloader(false);
+        setnotfound(true);
       }
     };
     fetchBook();
@@ -45,7 +46,7 @@ const Searched = () => {
           })}
         </div>
       ) : (
-        <>{found && <h2>NOTHING FOUND!</h2>} //no result found</>
+        <>{notfound && <h2>NOTHING FOUND!</h2>} </>             //no result found
       )}
     </>
   );
