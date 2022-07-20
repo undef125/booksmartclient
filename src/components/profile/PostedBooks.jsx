@@ -40,8 +40,9 @@ const PostedBooks = ({ book }) => {
   };
 
   return (
-    <div className="bookwraper">
+    <>
       {loader && <Loader />}
+    <div className="bookwraper">
       <div className="singlebook">
         <div className="imageholder">
           <img src={`https://serverbooksmart.herokuapp.com/${book.image}`} alt="" />
@@ -71,6 +72,7 @@ const PostedBooks = ({ book }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
