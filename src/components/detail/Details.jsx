@@ -58,7 +58,7 @@ const Details = (props) => {
         <div className="viewdetaildet">
           <div className="leftdetailsectiondet">
             <div className="imageHolderdet">
-              <img src={`http://localhost:5000/${book[0].image}`} alt="" />
+              <img src={`https://serverbooksmart.herokuapp.com/${book[0].image}`} alt="" />
             </div>
           </div>
           <div className="rightdetailsectiondet">
