@@ -15,8 +15,9 @@ const Login = ({ setisAuthenticated }) => {
   const [email, setemail] = useState("kapilrandom55@gmail.com");
   const [password, setpassword] = useState("kapil");
   const [otp, setotp] = useState("");
+  const [loader, setloader] = useState(false);
 
-  const { setuserName, setuserEmail, userName, userEmail, userId, setuserId ,setloader, loader} =
+  const { setuserName, setuserEmail, userName, userEmail, userId, setuserId} =
     useContext(DataContext);
 
   //toggling between login and signup

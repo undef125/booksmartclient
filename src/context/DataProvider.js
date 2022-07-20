@@ -7,10 +7,9 @@ const DataProvider = ({ children }) => {
     const [userName, setuserName] = useState('');
     const [userEmail, setuserEmail] = useState('');
     const [userId, setuserId] = useState('');
-    const [loader, setloader] = useState(false);
 
     return (
-        <DataContext.Provider value={{searchedData, setsearchedData, userName, setuserName, userEmail, setuserEmail,userId, setuserId,loader,setloader}}>
+        <DataContext.Provider value={{searchedData, setsearchedData, userName, setuserName, userEmail, setuserEmail,userId, setuserId}}>
             {children}
         </DataContext.Provider>
     );

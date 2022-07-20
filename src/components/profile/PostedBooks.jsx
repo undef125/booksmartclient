@@ -2,16 +2,19 @@ import React, { useEffect, useState } from "react";
 import { renderMatches, useNavigate } from "react-router-dom";
 import axios from "../../api/api";
 import getAccessToken from "../../jwt/jwtauth";
+import Loader from "../loader/Loader";
 import "./postedstyle.css";
 
 const PostedBooks = ({ book }) => {
   const navigate = useNavigate();
   const [rerender, setrerender] = useState(false);
+  const [loader, setloader] = useState(false);
 
   useEffect(() => {}, [rerender]);
 
   const deleteBook = async () => {
     try {
+      setloader(true);
       let res = await axios.delete(`/delete/${book._id}`, {
         headers: {
           Authorization: getAccessToken(),
@@ -20,8 +23,10 @@ const PostedBooks = ({ book }) => {
       });
       console.log("delted book hehe!!");
       setrerender(!rerender);
+      setloader(false);
     } catch (error) {
       console.log("error: " + error);
+      setloader(false);
     }
   };
 
@@ -36,6 +41,7 @@ const PostedBooks = ({ book }) => {
 
   return (
     <div className="bookwraper">
+      {loader && <Loader />}
       <div className="singlebook">
         <div className="imageholder">
           <img src={`https://serverbooksmart.herokuapp.com/${book.image}`} alt="" />
