@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { DataContext } from "../context/DataProvider";
 import "./loginstyle.css";
 import { ToastContainer, toast } from "react-toastify";
-import Loader from "../components/loader/Loader";
+import {LoaderTriangle} from "../components/loader/Loader";
 
 const Login = ({ setisAuthenticated }) => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Login = ({ setisAuthenticated }) => {
   const [otp, setotp] = useState("");
   const [loader, setloader] = useState(false);
 
-  const { setuserName, setuserEmail, userName, userEmail, userId, setuserId} =
+  const { setuserName, setuserEmail, setuserId} =
     useContext(DataContext);
 
   //toggling between login and signup
@@ -39,7 +39,7 @@ const Login = ({ setisAuthenticated }) => {
       toast.warning("Please fill all the input field", { autoClose: 1000, toastId: "validate1"});
     } else {
       try {
-          let result = await axios.post("/getotp", {
+          await axios.post("/getotp", {
               name: name,
               email: email,
             });
@@ -116,7 +116,7 @@ const Login = ({ setisAuthenticated }) => {
 
   return (
     <div className="authenticatepage">
-      { loader && <Loader /> }
+      { loader && <LoaderTriangle /> }
       {toggle === "login" ? (
         <div className="loginholder">
           <div className="loginBox">

@@ -1,9 +1,10 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "../../api/api";
 import getAccessToken from "../../jwt/jwtauth";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { DataContext } from "../../context/DataProvider";
 import "./detailstyle.css";
+
 const Details = (props) => {
   const { userId } = useContext(DataContext);
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const Details = (props) => {
     console.log(userId, book[0].sellerid);
 
     try {
-      const result = await axios.post(`/chat`, {
+      await axios.post(`/chat`, {
         senderId: userId,
         receiverId: book[0].sellerid,
       });

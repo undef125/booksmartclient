@@ -2,12 +2,11 @@ import React, { useContext } from "react";
 import { DataContext } from "../../../context/DataProvider";
 import "./navstyle.css";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "../../../api/api";
 import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const navigate = useNavigate();
-    const { searchedData, setsearchedData ,userName} = useContext(DataContext);
+    const { setsearchedData ,userName} = useContext(DataContext);
 
     const searchh = (value) => {
         setsearchedData(value);

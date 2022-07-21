@@ -1,32 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { renderMatches, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "../../api/api";
 import getAccessToken from "../../jwt/jwtauth";
-import Loader from "../loader/Loader";
 import "./postedstyle.css";
+import { toast } from "react-toastify";
 
 const PostedBooks = ({ book }) => {
   const navigate = useNavigate();
   const [rerender, setrerender] = useState(false);
-  const [loader, setloader] = useState(false);
 
   useEffect(() => {}, [rerender]);
 
   const deleteBook = async () => {
     try {
-      setloader(true);
-      let res = await axios.delete(`/delete/${book._id}`, {
+      await axios.delete(`/delete/${book._id}`, {
         headers: {
           Authorization: getAccessToken(),
           img: book.image,
         },
       });
-      console.log("delted book hehe!!");
+      toast.success("Book Deleted !", {autoClose: 1000, toastId: "posted1"});
       setrerender(!rerender);
-      setloader(false);
     } catch (error) {
-      console.log("error: " + error);
-      setloader(false);
+      toast.error("Cannot delete book !", {autoClose: 1000, toastId: "posted2"})
     }
   };
 
@@ -41,7 +37,6 @@ const PostedBooks = ({ book }) => {
 
   return (
     <>
-      {loader && <Loader />}
     <div className="bookwraper">
       <div className="singlebook">
         <div className="imageholder">
@@ -55,7 +50,7 @@ const PostedBooks = ({ book }) => {
           <div className="editholder" onClick={navigateToUpdate}>
             <img src="/edit.png" alt="" />
           </div>
-          <div className="deleteholder" onClick={navigateToUpdate}>
+          <div className="deleteholder" onClick={deleteBook}>
             <img src="/delete.png" alt="" />
           </div>
         </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DisplaySearched from "../display/Display";
 import axios from "../../api/api";
 import getAccessToken from "../../jwt/jwtauth";
-import Loader from "../loader/Loader";
+import {LoaderCircle} from "../loader/Loader";
 import "./unacademicstyle.css";
 
 const UnacademicBooks = () => {
@@ -26,7 +26,7 @@ const UnacademicBooks = () => {
 
   return (
     <>
-      {loader && <Loader />}
+      {loader && <LoaderCircle />}
       <div className="resultholder">
         {books.map((book) => {
           return (

@@ -4,7 +4,7 @@ import axios from "../../api/api";
 import DisplaySearched from "../display/Display";
 import "./searchstyle.css";
 import getAccessToken from "../../jwt/jwtauth";
-import Loader from "../loader/Loader";
+// import Loader from "../loader/Loader";
 
 const Searched = () => {
   const { searchedData } = useContext(DataContext);
@@ -38,7 +38,7 @@ const Searched = () => {
 
   return (
     <>
-      {loader && <Loader />}
+      {/* {loader && <Loader />} */}
       {books.length > 0 ? (
         <div className="searchdisplaycontainer">
           {books.map((book) => {

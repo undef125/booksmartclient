@@ -5,13 +5,16 @@ import PostedBooks from "./PostedBooks";
 import axios from "../../api/api";
 import getAccessToken from "../../jwt/jwtauth";
 import "./postedstyle.css";
+import { LoaderCircle } from "../loader/Loader";
 
 const Profile = () => {
   const { userName, userEmail } = useContext(DataContext);
   const [postedBooks, setpostedBooks] = useState([]);
+  const [loader, setloader] = useState(false);
 
   useEffect(() => {
     const fetchPostedBooks = async () => {
+      setloader(true);
       let search = window.location.search;
       let params = new URLSearchParams(search);
       let tosearch = params.get("q");
@@ -21,6 +24,7 @@ const Profile = () => {
         },
       });
       setpostedBooks(result.data);
+      setloader(false);
     };
     fetchPostedBooks();
   }, []);
@@ -32,6 +36,7 @@ const Profile = () => {
         <div className="email">Email: {userEmail}</div>
       </div>
       <h3>Books You Have Posted</h3>
+      {loader && <LoaderCircle />}
       <div className="postedbookholder">
         {postedBooks.map((book) => {
           return <PostedBooks book={book} />;
