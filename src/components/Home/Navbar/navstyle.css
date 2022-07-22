@@ -69,6 +69,7 @@
     height: 60px;
     width: 60px;
     padding: .4rem;
+    cursor: pointer;
 }
 .leftone > img {
     height: 100%;
