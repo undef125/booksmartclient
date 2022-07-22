@@ -4,7 +4,8 @@ import axios from "../../api/api";
 import DisplaySearched from "../display/Display";
 import "./searchstyle.css";
 import getAccessToken from "../../jwt/jwtauth";
-// import Loader from "../loader/Loader";
+import {LoaderCircle} from "../loader/Loader";
+import NotFound from "../notfound/NotFound";
 
 const Searched = () => {
   const { searchedData } = useContext(DataContext);
@@ -30,24 +31,24 @@ const Searched = () => {
       } catch (error) {
         console.log("error: " + error);
         setloader(false);
-        setnotfound(true);
       }
+      if(books.length < 1) setnotfound(true)
     };
     fetchBook();
   }, [searchedData]);
 
   return (
     <>
-      {/* {loader && <Loader />} */}
+      {loader && <LoaderCircle />}
       {books.length > 0 ? (
         <div className="searchdisplaycontainer">
-          {books.map((book) => {
+          {books?.map((book) => {
             return <DisplaySearched book={book} />;
           })}
         </div>
-      ) : (
-        <>{notfound && <h2>NOTHING FOUND!</h2>} </>             //no result found
-      )}
+      ) : 
+        notfound ? (<NotFound towarn="No any result for your search.."/>) : null
+      }
     </>
   );
 };
