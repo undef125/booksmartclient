@@ -1,23 +1,53 @@
-import React, { useEffect, useState, useContext, useRef } from "react";
-import { DataContext } from "../../context/DataProvider";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "../../api/api";
 import "./chatstyle.css";
-let chatId = "";
-let messages = []
+import io from "socket.io-client";
 
+const socket = io.connect("http://localhost:5000", { secure: true });
+
+let chatId = "";
 
 const Chat = () => {
   const [toSendMessage, settoSendMessage] = useState("");
   const [chats, setChats] = useState([]);
-  const [rerender, setrerender] = useState(false);
   const [messages, setMessages] = useState([]);
-  const [showMessagesection, setShowMessageSection] = useState(false)
+  const [showMessagesection, setShowMessageSection] = useState(false);
 
   const location = useLocation();
   const { sellerId, buyerId } = location.state;
 
-  useEffect(() => {}, [rerender]);
+
+  const getMessages = () => {
+    axios
+      .get(`/msg/${chatId}`)
+      .then((res) => setMessages([...res.data]))
+      .catch((err) => console.log("error while fetching messages!!"));
+  };
+
+  const sendMessage = async () => {
+    let messagetosend = {
+      chatId: chatId,
+      senderId: buyerId,
+      text: toSendMessage,
+    };
+    try {
+      await axios.post(`/msg/`, messagetosend);
+    } catch (error) {
+      console.log("error: " + error);
+    }
+    await socket.emit("send_message", messagetosend);
+    getMessages();
+  };
+
+  useEffect(() => {
+    socket.on("receive_message", (messageobj) => {
+      console.log("message received: ", messageobj);
+      if (messageobj) {
+        getMessages();
+      }
+    });
+  }, [socket]);
 
   useEffect(() => {
     const getuserChats = async () => {
@@ -32,28 +62,10 @@ const Chat = () => {
     getuserChats();
   }, []);
 
-  const sendMessage = async () => {
-    try {
-      const { data } = await axios.post(`/msg/`, {
-        chatId: chatId,
-        senderId: buyerId,
-        text: toSendMessage,
-      });
-      console.log(data);
-    } catch (error) {
-      console.log("error: " + error);
-    }
-    setrerender(!rerender);
+  //socket.io configurations
+  const joinRoom = (id) => {
+    socket.emit("join_room", id);
   };
-
-  const getMessages = () => {
-    console.log(chatId);
-      axios.get(`/msg/${chatId}`)
-        .then(res => setMessages([...res.data]))
-        .catch(err => console.log("error while fetching messages!!"))
-  };
-
-  // setInterval(getMessages, 10000); 
 
   return (
     <div className="chatcontainer">
@@ -67,6 +79,7 @@ const Chat = () => {
                     className="name"
                     onClick={() => {
                       chatId = chat._id;
+                      joinRoom(chat._id);
                       setShowMessageSection(true);
                       getMessages();
                     }}
@@ -79,36 +92,39 @@ const Chat = () => {
           })}
         </div>
       </div>
-      {showMessagesection && 
-      <div className="rightsection">
-        <div className="messages">
-          {messages?.map((message) => (
-            <>
-              {message.senderId === buyerId ? (
-                <p className="rightmsg">{message.text}</p>
-              ) : (
-                <p className="leftmsg">{message.text}</p>
-              )}
-            </>
-          ))}
+      {showMessagesection ? (
+        <div className="rightsection">
+          <div className="messages">
+            {messages?.map((message) => (
+              <>
+                {message.senderId === buyerId ? (
+                  <p className="rightmsg">{message.text}</p>
+                ) : (
+                  <p className="leftmsg">{message.text}</p>
+                )}
+              </>
+            ))}
+          </div>
+          <div className="sendmessage">
+            <input
+              type="text"
+              placeholder="Send Message!"
+              value={toSendMessage}
+              onChange={(e) => settoSendMessage(e.target.value)}
+            />
+            <button
+              onClick={() => {
+                settoSendMessage("");
+                sendMessage();
+              }}
+            >
+              Send message
+            </button>
+          </div>
         </div>
-        <div className="sendmessage">
-          <input
-            type="text"
-            placeholder="Send Message!"
-            value={toSendMessage}
-            onChange={(e) => settoSendMessage(e.target.value)}
-          />
-          <button
-            onClick={() => {
-              sendMessage();
-            }}
-          >
-            Send message
-          </button>
-        </div>
-      </div>
-}
+      ) : (
+        <p>Say Hello !!</p>
+      )}
     </div>
   );
 };

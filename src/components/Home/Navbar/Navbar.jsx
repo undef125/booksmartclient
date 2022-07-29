@@ -35,18 +35,18 @@ const Navbar = () => {
                     <div className="rightone">
                         <Link to="/sellbook">
                             {" "}
-                            <div className="Categories">Sell Book</div>
+                            <div className="Categories nav-item">Sell Book</div>
                         </Link>
                         <Link to="/freebooks">
                             {" "}
-                            <div className="Categories">Free Books</div>
+                            <div className="Categories nav-item">Free Books</div>
                         </Link>
                         <Link to="/unacademicbooks">
                             {" "}
-                            <div className="Categories">Unacademic Books</div>
+                            <div className="Categories nav-item">Unacademic Books</div>
                         </Link>
-                        <div className="profile" onClick={navigateToProfile}>Profile</div>
-                        <div className="logout" onClick={logoutUser}>
+                        <div className="profile nav-item" onClick={navigateToProfile}>Profile</div>
+                        <div className="logout nav-item" onClick={logoutUser}>
                             Log Out
                         </div>
                     </div>
