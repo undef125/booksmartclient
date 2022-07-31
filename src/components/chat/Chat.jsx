@@ -4,9 +4,11 @@ import axios from "../../api/api";
 import "./chatstyle.css";
 import io from "socket.io-client";
 
-const socket = io.connect("http://localhost:5000", { secure: true });
+// const socket = io.connect("http://localhost:5000", { secure: true });                            //development
+const socket = io.connect("https://serverbooksmart.herokuapp.com/", { secure: true });             //production
 
 let chatId = "";
+let userchats = [];
 
 const Chat = () => {
   const [toSendMessage, settoSendMessage] = useState("");
@@ -50,14 +52,26 @@ const Chat = () => {
   }, [socket]);
 
   useEffect(() => {
+    const getUsers = async() => {
+      userchats.map(async(chat) => {
+        try {
+          const gotuser = await axios.get(`/getuser/${chat._id}`);
+          console.log("comes: " + gotuser)
+        } catch (error) {
+          console.log("error bhayo babu: " + error)
+        }
+        // setChats([...chats, ...gotuser.data])
+      })
+    }
     const getuserChats = async () => {
       try {
         const result = await axios.get(`/chat/${buyerId}`);
-        setChats([...result.data]);
+        userchats.push(...result.data);
         console.log(result);
       } catch (error) {
         console.log("Error: " + error);
       }
+      getUsers();
     };
     getuserChats();
   }, []);

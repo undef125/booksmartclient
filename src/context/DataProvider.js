@@ -7,6 +7,7 @@ const DataProvider = ({ children }) => {
     const [userName, setuserName] = useState('');
     const [userEmail, setuserEmail] = useState('');
     const [userId, setuserId] = useState('');
+    const [loginStatus, setloginStatus] = useState(false);
 
     return (
         <DataContext.Provider value={{searchedData, setsearchedData, userName, setuserName, userEmail, setuserEmail,userId, setuserId}}>
