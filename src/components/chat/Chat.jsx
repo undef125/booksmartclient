@@ -4,11 +4,10 @@ import axios from "../../api/api";
 import "./chatstyle.css";
 import io from "socket.io-client";
 
-// const socket = io.connect("http://localhost:5000", { secure: true });                            //development
-const socket = io.connect("https://serverbooksmart.herokuapp.com/", { secure: true });             //production
+const socket = io.connect("http://localhost:5000", { secure: true }); //development
+// const socket = io.connect("https://serverbooksmart.herokuapp.com/", { secure: true });             //production
 
 let chatId = "";
-let userchats = [];
 
 const Chat = () => {
   const [toSendMessage, settoSendMessage] = useState("");
@@ -18,7 +17,6 @@ const Chat = () => {
 
   const location = useLocation();
   const { sellerId, buyerId } = location.state;
-
 
   const getMessages = () => {
     axios
@@ -44,7 +42,6 @@ const Chat = () => {
 
   useEffect(() => {
     socket.on("receive_message", (messageobj) => {
-      console.log("message received: ", messageobj);
       if (messageobj) {
         getMessages();
       }
@@ -52,26 +49,15 @@ const Chat = () => {
   }, [socket]);
 
   useEffect(() => {
-    const getUsers = async() => {
-      userchats.map(async(chat) => {
-        try {
-          const gotuser = await axios.get(`/getuser/${chat._id}`);
-          console.log("comes: " + gotuser)
-        } catch (error) {
-          console.log("error bhayo babu: " + error)
-        }
-        // setChats([...chats, ...gotuser.data])
-      })
-    }
+
     const getuserChats = async () => {
       try {
         const result = await axios.get(`/chat/${buyerId}`);
-        userchats.push(...result.data);
+        setChats([...chats, ...result.data]);
         console.log(result);
       } catch (error) {
         console.log("Error: " + error);
       }
-      getUsers();
     };
     getuserChats();
   }, []);
@@ -98,7 +84,7 @@ const Chat = () => {
                       getMessages();
                     }}
                   >
-                    {chat.members.filter((id) => id !== buyerId)}
+                    {chat?.members.filter((id) => id !== buyerId && id !== "")}
                   </div>
                 </div>
               </>
@@ -108,6 +94,7 @@ const Chat = () => {
       </div>
       {showMessagesection ? (
         <div className="rightsection">
+          <div className="head">{buyerId}</div>
           <div className="messages">
             {messages?.map((message) => (
               <>
@@ -126,14 +113,15 @@ const Chat = () => {
               value={toSendMessage}
               onChange={(e) => settoSendMessage(e.target.value)}
             />
-            <button
-              onClick={() => {
-                settoSendMessage("");
-                sendMessage();
-              }}
-            >
-              Send message
-            </button>
+            <div className="sendholder">
+              <img
+                src="/send.png"
+                onClick={() => {
+                  settoSendMessage("");
+                  sendMessage();
+                }}
+              ></img>
+            </div>
           </div>
         </div>
       ) : (

@@ -1,4 +1,4 @@
-.viewdetaildet{
+/* .viewdetaildet{
     display: flex;
     width:80%;
     height: 65vh;
@@ -40,4 +40,82 @@
 .bold{
     font-size: 1rem;
     font-weight: 600 ;
+} */
+
+.viewdetaildet {
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  align-items: center;
+  font-size: 1.1rem;
+  color: rgb(59, 59, 59);
+}
+.headings {
+  color: black;
+}
+.imageHolderdet {
+  height: 55vh;
+  width: 500px;
+}
+.imageHolderdet > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.rightdetailsectiondet {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 55vh;
+  position: relative;
+  background-color: rgba(128, 128, 128, 0.018);
+  border-radius: 0 5px 5px 0;
+}
+/* .rightdetailsectiondet > div {
+    display: flex;
+} */
+.pricename {
+  color: black;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.negotiabledet,
+.sellerNamedet,
+.detaildet {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+  gap: 0 0.5rem;
+}
+/* .negotiabledet > :last-child,.sellerNamedet > :last-child{
+    font-weight: 400;
+} */
+.buttonchat {
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  margin-left: 20%;
+  transition: color 0.3s ease-in-out;
+}
+.buttonchat:hover {
+  color: black;
+}
+.editdelteholderelse {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 70%;
+  margin-left: 16%;
+}
+.detaildet {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

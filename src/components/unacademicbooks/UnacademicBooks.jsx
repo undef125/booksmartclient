@@ -31,7 +31,7 @@ const UnacademicBooks = () => {
         {books.map((book) => {
           return (
             <>
-              <DisplaySearched book={book} />
+              <DisplaySearched book={book} key={Math.random()}/>
             </>
           );
         })}

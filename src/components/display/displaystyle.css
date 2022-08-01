@@ -2,13 +2,18 @@
     width: 16rem;
     height: auto;
     padding: .5rem;
-    box-shadow: 1px 1px 4px black;
+    box-shadow: 1px 1px 4px rgb(115, 162, 189);
     background-color: white;
     border-radius: 10px 10px 3px 3px;
+    transition: box-shadow .2s ease-in-out;
 }
+
+ .bookwraper:hover {
+    box-shadow: 1px 1px 4px black;
+} 
+
 .singlebook{
     position: relative;
-    /* height: 25rem; */
 }
 
 .viewdetholder{
@@ -33,15 +38,19 @@
 .imageholder{
     width: 16rem;
     height: 16rem;
+    cursor: pointer;
 }
 .imageholder > img {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
-
-.booksname{
-    width: 50%;
+.nameprice {
+    margin-top: .5rem;
+    font-weight: 600;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .viewdetbtn {
@@ -88,11 +97,9 @@
     align-items: center;
     gap:15px;
 }
-.nameprice{
-    font-weight: 600;
-    height: 2rem;
-}
-.negotiable,.seller{
+.negotiable{
     display: flex;
+    justify-content: space-between;
+    width: 50%;
     font-weight: 600;
 }

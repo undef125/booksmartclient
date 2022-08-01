@@ -6,6 +6,7 @@ import axios from "../../api/api";
 import getAccessToken from "../../jwt/jwtauth";
 import "./postedstyle.css";
 import { LoaderCircle } from "../loader/Loader";
+import DisplaySearched from "../display/Display";
 
 const Profile = () => {
   const { userName, userEmail } = useContext(DataContext);
@@ -39,7 +40,7 @@ const Profile = () => {
       {loader && <LoaderCircle />}
       <div className="postedbookholder">
         {postedBooks.map((book) => {
-          return <PostedBooks book={book} />;
+          return <DisplaySearched book={book} key={Math.random()} profile={true}/>;
         })}
       </div>
     </>
