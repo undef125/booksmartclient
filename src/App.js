@@ -22,7 +22,7 @@ const PrivateRoute = ({isAuthenticated, ...props}) => {
         <>
         <Navbar />
         <Outlet />
-        <Footer />
+        {/* <Footer /> */}
         </>
     ) : (
         <Navigate replace to="/login" />

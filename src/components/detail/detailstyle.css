@@ -1,62 +1,22 @@
-/* .viewdetaildet{
-    display: flex;
-    width:80%;
-    height: 65vh;
-    margin: auto;
-    gap:70px;
-    padding:2rem;
-    box-sizing: border-box;
-}
-.imageHolderdet{
-    height: 55vh;
-    width: 500px;
-}
-.imageHolderdet > img{
-    height:100%;
-    width:100%;
-    object-fit: cover;
-    border: 8px solid rgba(128, 128, 128, 0.219);
-}
-
-.rightdetailsectiondet{
-    display: flex;
-    flex-direction: column;
-    gap:10px;
-    width:40%;
-    height: 53vh;
-    padding:1rem;
-    position: relative;
-}
-.rightdetailsectiondet > div {
-    display: flex;
-}
-
-.buttonchat{
-    width:50%;
-    position: absolute;
-    bottom: 0;
-    margin-left: 20%;
-}
-.bold{
-    font-size: 1rem;
-    font-weight: 600 ;
-} */
-
 .viewdetaildet {
-  margin-top: 10vh;
+  width: 90%;
+  margin: 10vh auto auto auto;
   display: flex;
   justify-content: center;
+  /* align-items: center; */
   font-weight: 600;
-  align-items: center;
   font-size: 1.1rem;
   color: rgb(59, 59, 59);
 }
 .headings {
   color: black;
 }
+/* .leftdetailsectiondet{
+  width: 100%;
+} */
 .imageHolderdet {
   height: 55vh;
-  width: 500px;
+  width: 100%;
 }
 .imageHolderdet > img {
   height: 100%;
@@ -68,15 +28,12 @@
 .rightdetailsectiondet {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 100%;
   height: 55vh;
   position: relative;
   background-color: rgba(128, 128, 128, 0.018);
   border-radius: 0 5px 5px 0;
 }
-/* .rightdetailsectiondet > div {
-    display: flex;
-} */
 .pricename {
   color: black;
   width: 70%;
@@ -93,14 +50,11 @@
   margin: 0 auto;
   gap: 0 0.5rem;
 }
-/* .negotiabledet > :last-child,.sellerNamedet > :last-child{
-    font-weight: 400;
-} */
 .buttonchat {
-  width: 50%;
+  width: 40%;
   position: absolute;
   bottom: 0;
-  margin-left: 20%;
+  margin-left: 30%;
   transition: color 0.3s ease-in-out;
 }
 .buttonchat:hover {
@@ -118,4 +72,30 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+
+/* responsive section for tablets*/
+@media screen and (max-width: 768px) {
+  .viewdetaildet{
+    flex-direction: column;
+    width: 80%;
+    margin: 10vh auto;
+  }
+  .rightdetailsectiondet > div{
+    width: 100%;
+  }
+}
+
+/* responsive section for mobiles*/
+@media screen and (max-width: 480px) {
+  .viewdetaildet{
+    flex-direction: column;
+    width: 90%;
+    margin: 10vh auto;
+  }
+  .buttonchat{
+    margin-left: 20%;
+    width: 60%;
+  }
 }

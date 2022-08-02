@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { DataContext } from "../../context/DataProvider";
 import axios from "../../api/api";
 import DisplaySearched from "../display/Display";
-import "./searchstyle.css";
 import getAccessToken from "../../jwt/jwtauth";
 import {LoaderCircle} from "../loader/Loader";
 import NotFound from "../notfound/NotFound";
@@ -27,6 +26,7 @@ const Searched = () => {
           },
         });
         setBooks(res.data);
+        console.log(res.da)
         setloader(false);
       } catch (error) {
         console.log("error: " + error);
@@ -40,10 +40,14 @@ const Searched = () => {
   return (
     <>
       {loader && <LoaderCircle />}
-      {books.length > 0 ? (
-        <div className="searchdisplaycontainer">
+      {books?.length > 0 ? (
+        <div className="resultholder">
           {books?.map((book) => {
-            return <DisplaySearched book={book} />;
+            return (
+              <>
+                <DisplaySearched book={book} key={Math.random()}/>
+              </>
+            );
           })}
         </div>
       ) : 

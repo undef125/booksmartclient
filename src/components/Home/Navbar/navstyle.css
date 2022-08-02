@@ -6,24 +6,32 @@
     z-index: 100;
 }
 .navbarholder {
-    display: flex;
-    justify-content: center;
-}
-
-.innernav{
+    width: 90%;
+    margin: auto;
     display: flex;
     justify-content: space-between;
-    width: 80%;
 }
-.rightone{
+.noham{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.innernav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.rightone > .noham{
     display: flex;
 }
-.rightone > div {
+.rightone > .noham > div {
     margin: auto 1rem;
     font-size: 1.1rem;
 }
-.rightone > a {
+.rightone > .noham > a {
     text-decoration: none;
+    color: green;
     margin: auto .5rem;
     color: black;
     font-size: 1.1rem;
@@ -53,7 +61,7 @@
     height: 30px;
     border-radius: 10px 0px 0px 10px;
     border: 0px;
-  box-sizing: border-box;
+    box-sizing: border-box;
 
 }
 .inputNav > input:focus {
@@ -89,3 +97,63 @@
 .nav-item:hover{
     color: rgb(0, 0, 0);
 }
+.hammenu,.crossbtn{
+    display: none;
+}
+/*tabs*/
+@media screen and (max-width: 768px) {
+    #smallscreen{
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 80vh;
+        background-color: #60c3ad;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 20vh;
+        transition: all .4s ease;
+    }
+    #smallscreen .nav-item {
+        display: block;
+        cursor: pointer;
+    }
+    #smallscreen .nav-item:hover {
+        color: black;
+    }
+    #showcross {
+        display: flex;
+        height: 35px;
+        width: 35px;
+    }
+    #showcross > img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .crossbtn{
+        cursor: pointer;
+    }
+    /* .noham{
+        transition: all .1s ease;
+    } */
+    .rightone{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .noham .nav-item {
+        display: none;
+    }
+    .hammenu{
+        display: flex;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+    .hammenu > img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+  }

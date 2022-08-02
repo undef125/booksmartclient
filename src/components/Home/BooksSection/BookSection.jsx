@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./booksectionstyle.css";
-import IndividualBookSection from "./IndividualBookSection";
 import { useNavigate } from "react-router-dom";
 
 
@@ -13,7 +12,7 @@ const BookSection = () => {
   }
     return (
       <div className="wholefaculties">
-        <div className="BCT">
+        <div className="BCT oddfaculties">
           <div className="left green">
             <div className="imgholder">
               <img src="bct.png" alt="" />
@@ -26,7 +25,7 @@ const BookSection = () => {
             <div className="btn"><button onClick={() => navigateToFaculty("bct")}>Your Books are Here !!!</button></div>
           </div>
         </div>
-        <div className="BCE">
+        <div className="BCE evenfaculties">
           <div className="left">
           <div className="facultyname">
               BCE
@@ -40,7 +39,7 @@ const BookSection = () => {
           </div>
         </div>
       
-        <div className="BEI">
+        <div className="BEI oddfaculties">
           <div className="left green">
             <div className="imgholder">
               <img src="bei.png" alt="" />
@@ -53,7 +52,7 @@ const BookSection = () => {
             <div className="btn"><button onClick={() => navigateToFaculty("bei")}>Your Books are Here !!!</button></div>
           </div>
         </div>
-        <div className="BAG">
+        <div className="BAG evenfaculties">
           <div className="left">
           <div className="facultyname">
               BAG
@@ -67,7 +66,7 @@ const BookSection = () => {
           </div>
         </div>
       
-        <div className="BEL">
+        <div className="BEL oddfaculties">
           <div className="left green">
             <div className="imgholder">
               <img src="bel.png" alt="" />
@@ -80,7 +79,7 @@ const BookSection = () => {
             <div className="btn"><button onClick={() => navigateToFaculty("bel")}>Your Books are Here !!!</button></div>
           </div>
         </div>
-        <div className="BAR">
+        <div className="BAR evenfaculties">
           <div className="left">
           <div className="facultyname">
               BAR
@@ -93,7 +92,7 @@ const BookSection = () => {
             </div>
           </div>
         </div>
-        <div className="BME">
+        <div className="BME oddfaculties">
           <div className="left green">
             <div className="imgholder">
               <img src="bme.png" alt="" />

@@ -54,10 +54,10 @@ const DisplaySearched = ({ book,profile }) => {
           <div><p>Negotiable: </p></div>
           <div>{book.negotiable ? <p>Yes</p> : <p>No</p>}</div>
         </div>
-        <div className="seller">
+        {!profile && <div className="seller">
           <p>Seller: </p>
           <p>{book.seller}</p>
-        </div>
+        </div>}
       </div>
     </div>
   );
