@@ -1,4 +1,5 @@
 .authenticatepage{
+  height: 100vh;
     background-color: whitesmoke;
 }
 .loginholder,.signupholder {

@@ -15,6 +15,7 @@ const Navbar = () => {
   };
 
   const navigateToProfile = () => {
+    if (shownav) setshownav(false);
     navigate(`/profile?q=${userName}`);
   };
   const logoutUser = () => {
@@ -38,17 +39,39 @@ const Navbar = () => {
           </div>
           <div className="rightone">
             <div className="noham" id={shownav ? "smallscreen" : ""}>
-              <div className="crossbtn nav-item" id={shownav ? "showcross" : ""} onClick={() => setshownav(false)}>
+              <div
+                className="crossbtn nav-item"
+                id={shownav ? "showcross" : ""}
+                onClick={() => setshownav(false)}
+              >
                 <img src="/close.png" alt="" />
               </div>
-              <Link to="/sellbook" className="nav-item">
-                <div >Sell Book</div>
+              <Link
+                to="/sellbook"
+                className="nav-item"
+                onClick={() => {
+                  if (shownav) setshownav(false);
+                }}
+              >
+                <div>Sell Book</div>
               </Link>
-              <Link to="/freebooks" className="nav-item">
-                <div >Free Books</div>
+              <Link
+                to="/freebooks"
+                className="nav-item"
+                onClick={() => {
+                  if (shownav) setshownav(false);
+                }}
+              >
+                <div>Free Books</div>
               </Link>
-              <Link to="/unacademicbooks" className="nav-item">
-                <div >Unacademic Books</div>
+              <Link
+                to="/unacademicbooks"
+                className="nav-item"
+                onClick={() => {
+                  if (shownav) setshownav(false);
+                }}
+              >
+                <div>Unacademic Books</div>
               </Link>
               <div className="nav-item" onClick={navigateToProfile}>
                 Profile
