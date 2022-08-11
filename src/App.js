@@ -14,7 +14,7 @@ import Chat from './components/chat/Chat';
 import Login from "./login/Login";
 import Footer from "./components/footer/Footer";
 import { useState } from "react";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer,Slide } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const PrivateRoute = ({isAuthenticated, ...props}) => {
@@ -36,7 +36,7 @@ function App() {
     return (
         <DataProvider>
             <div className="App">
-              <ToastContainer limit={1}/>
+              <ToastContainer limit={1} transition={ Slide }/>
                 <Routes>
                     <Route path="/login" element={<Login setisAuthenticated={setisAuthenticated}/>} />
                     <Route path="/" element={<PrivateRoute isAuthenticated={isAuthenticated} />}>

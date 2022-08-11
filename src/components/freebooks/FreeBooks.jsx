@@ -21,23 +21,26 @@ const FreeBooks = () => {
       });
       setBooks(res.data);
       setloader(false);
-      if(books.length < 1) setnotfound(true);
+      if (books.length < 1) setnotfound(true);
     };
     fetchBook();
   }, []);
   return (
     <>
-    { loader && <LoaderCircle /> }
-    { notfound && <NotFound towarn="Sorry no books in this section yet..."/> }
-      <div>
-        {books.map((book) => {
-          return (
-            <>
-              <DisplaySearched book={book} />
-            </>
-          );
-        })}
-      </div>
+      {loader && <LoaderCircle />}
+      {!notfound ? (
+        <NotFound towarn="Sorry no books in this section yet..." />
+      ) : (
+        <div className="resultholder">
+          {books.map((book) => {
+            return (
+              <>
+                <DisplaySearched book={book} />
+              </>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };

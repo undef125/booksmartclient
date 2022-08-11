@@ -31,19 +31,19 @@ const Profile = () => {
   }, []);
 
   return (
-    <>
+    <div className="profilecontainer">
       <div className="nameemailholder">
         <div className="name">Name: {userName}</div>
         <div className="email">Email: {userEmail}</div>
       </div>
-      <h3>Books You Have Posted</h3>
+      <h3 style={{textAlign: "center"}}>Books You Have Posted</h3>
       {loader && <LoaderCircle />}
       <div className="postedbookholder">
         {postedBooks.map((book) => {
           return <DisplaySearched book={book} key={Math.random()} profile={true}/>;
         })}
       </div>
-    </>
+    </div>
   );
 };
 

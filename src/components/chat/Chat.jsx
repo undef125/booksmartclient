@@ -4,8 +4,8 @@ import axios from "../../api/api";
 import "./chatstyle.css";
 import io from "socket.io-client";
 
-// const socket = io.connect("http://localhost:5000", { secure: true }); //development
-const socket = io.connect("https://serverbooksmart.herokuapp.com/", { secure: true });             //production
+const socket = io.connect("http://localhost:5000", { secure: true }); //development
+// const socket = io.connect("https://serverbooksmart.herokuapp.com/", { secure: true });             //production
 
 let chatId = "";
 

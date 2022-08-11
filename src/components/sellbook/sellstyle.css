@@ -1,12 +1,15 @@
 input {
   border: 1px solid black;
 }
-
+.formpage{
+  width: 100%;
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .formholder {
   width: 85%;
-  margin: auto;
-  padding: 5rem;
-  background-color: whitesmoke;
   display: flex;
   justify-content: center;
 }
@@ -43,6 +46,7 @@ form >input:focus{
 }
 .facultyholder{
   display: flex;
+  flex-wrap: wrap;
 }
 .submitbtn {
   border-radius: 15px;

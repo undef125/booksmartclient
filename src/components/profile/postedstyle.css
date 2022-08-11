@@ -45,6 +45,11 @@
    text-align: center;
  }
  */
+.profilecontainer{
+  width: 90%;
+  margin: 2vh auto;
+}
+
 .postedbookholder {
   width: 90%;
   padding: 2rem;
@@ -55,6 +60,13 @@
   display: flex;
   justify-content: center;
   margin: auto;
+}
+.nameemailholder{
+  text-align: center;
+  font-weight: 600;
+}
+.nameemailholder > div{
+  margin: .4rem auto;
 }
 .editdelteholder {
   width: 80%;
@@ -76,7 +88,6 @@
 }
 .singlebook {
   position: relative;
-  /* height: 25rem; */
 }
 
 .viewdetholder {

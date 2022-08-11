@@ -15,8 +15,8 @@ export const LoaderCircle = () => {
   return (
     <div>
       {/* <Audio height="100" width="100" color="grey" ariaLabel="loading" /> */}
-      <TailSpin color="#60c3ad" height={150} width={150} />
-    </div>
+      <TailSpin color="#60c3ad" height={150} width={150}/>
+    </div> 
   );
 };
 
