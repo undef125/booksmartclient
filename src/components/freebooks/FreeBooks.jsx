@@ -3,12 +3,10 @@ import DisplaySearched from "../display/Display";
 import axios from "../../api/api";
 import getAccessToken from "../../jwt/jwtauth";
 import { LoaderCircle } from "../loader/Loader";
-import NotFound from "../notfound/NotFound";
 
 const FreeBooks = () => {
   const [books, setBooks] = useState([]);
   const [loader, setloader] = useState(false);
-  const [notfound, setnotfound] = useState(false);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -21,16 +19,12 @@ const FreeBooks = () => {
       });
       setBooks(res.data);
       setloader(false);
-      if (books.length < 1) setnotfound(true);
     };
     fetchBook();
   }, []);
   return (
     <>
       {loader && <LoaderCircle />}
-      {!notfound ? (
-        <NotFound towarn="Sorry no books in this section yet..." />
-      ) : (
         <div className="resultholder">
           {books.map((book) => {
             return (
@@ -40,7 +34,6 @@ const FreeBooks = () => {
             );
           })}
         </div>
-      )}
     </>
   );
 };

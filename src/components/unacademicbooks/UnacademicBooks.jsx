@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DisplaySearched from "../display/Display";
 import axios from "../../api/api";
 import getAccessToken from "../../jwt/jwtauth";
-import {LoaderCircle} from "../loader/Loader";
+import { LoaderCircle } from "../loader/Loader";
 import "./unacademicstyle.css";
 
 const UnacademicBooks = () => {
@@ -27,15 +27,15 @@ const UnacademicBooks = () => {
   return (
     <>
       {loader && <LoaderCircle />}
-      <div className="resultholder">
-        {books.map((book) => {
-          return (
-            <>
-              <DisplaySearched book={book} key={Math.random()}/>
-            </>
-          );
-        })}
-      </div>
+        <div className="resultholder">
+          {books.map((book) => {
+            return (
+              <>
+                <DisplaySearched book={book} key={Math.random()} />
+              </>
+            );
+          })}
+        </div>
     </>
   );
 };
