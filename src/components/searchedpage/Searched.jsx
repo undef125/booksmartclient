@@ -4,13 +4,11 @@ import axios from "../../api/api";
 import DisplaySearched from "../display/Display";
 import getAccessToken from "../../jwt/jwtauth";
 import {LoaderCircle} from "../loader/Loader";
-import NotFound from "../notfound/NotFound";
 
 const Searched = () => {
   const { searchedData } = useContext(DataContext);
   const [books, setBooks] = useState([]);
   const [loader, setloader] = useState(false);
-  const [notfound, setnotfound] = useState(false);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -26,32 +24,26 @@ const Searched = () => {
           },
         });
         setBooks(res.data);
-        console.log(res.da)
         setloader(false);
       } catch (error) {
-        console.log("error: " + error);
         setloader(false);
       }
-      if(books.length < 1) setnotfound(true)
     };
     fetchBook();
   }, [searchedData]);
 
   return (
     <>
-      {loader && <LoaderCircle />}
-      {books?.length > 0 ? (
-        <div className="resultholder">
-          {books?.map((book) => {
-            return (
-              <>
-                <DisplaySearched book={book} key={Math.random()}/>
-              </>
-            );
-          })}
+      {loader ? <LoaderCircle /> : (
+          <div className="postedbookholder">
+          {
+          books?.length > 0 ? 
+           (books.map((book) =>  <DisplaySearched book={book} key={Math.random()} profile={true}/>))
+           :
+           (<DisplaySearched book={false} key={Math.random()} />)
+           }
         </div>
-      ) : 
-        notfound ? (<NotFound towarn="No any result for your search.."/>) : null
+        )
       }
     </>
   );

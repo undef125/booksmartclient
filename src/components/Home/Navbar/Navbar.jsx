@@ -47,6 +47,15 @@ const Navbar = () => {
                 <img src="/close.png" alt="" />
               </div>
               <Link
+                to="/"
+                className="nav-item"
+                onClick={() => {
+                  if (shownav) setshownav(false);
+                }}
+              >
+                <div>Home</div>
+              </Link>
+              <Link
                 to="/sellbook"
                 className="nav-item"
                 onClick={() => {

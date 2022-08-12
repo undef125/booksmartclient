@@ -28,11 +28,6 @@ const Details = () => {
         res.data[0]?.sellerid === userId
           ? setsamePerson(true)
           : setsamePerson(false);
-        // console.log(book);
-        console.log(
-          "userid: " + userId + " current user: " + res.data[0].sellerid
-        );
-        console.log(userId === res.data[0].sellerid);
       } catch (error) {
         console.log("error: " + error);
       }

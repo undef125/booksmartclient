@@ -37,13 +37,18 @@ const Profile = () => {
         <div className="email">Email: {userEmail}</div>
       </div>
       <h3 style={{textAlign: "center"}}>Books You Have Posted</h3>
-      {loader && <LoaderCircle />}
-      <div className="postedbookholder">
-        {postedBooks.map((book) => {
-          return <DisplaySearched book={book} key={Math.random()} profile={true}/>;
-        })}
+      {loader ? <LoaderCircle /> : (
+          <div className="postedbookholder">
+          {
+          postedBooks?.length > 0 ? 
+           (postedBooks.map((book) =>  <DisplaySearched book={book} key={Math.random()} profile={true}/>))
+           :
+           (<DisplaySearched book={false} key={Math.random()} />)
+           }
+        </div>
+        )
+      }
       </div>
-    </div>
   );
 };
 

@@ -26,16 +26,16 @@ const UnacademicBooks = () => {
 
   return (
     <>
-      {loader && <LoaderCircle />}
+      {loader ? <LoaderCircle /> : (
         <div className="resultholder">
-          {books.map((book) => {
-            return (
-              <>
-                <DisplaySearched book={book} key={Math.random()} />
-              </>
-            );
-          })}
+          {
+          books?.length > 0 ? 
+           (books?.map((book) => <DisplaySearched book={book} key={Math.random()} />) )
+           :
+           (<DisplaySearched book={false} key={Math.random()} />)
+           }
         </div>
+        )}
     </>
   );
 };

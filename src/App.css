@@ -1,3 +1,14 @@
 .App{
     min-height: 100vh;
 }
+.Toastify__toast-body {
+    height: 1rem;
+    width: 100rem;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: black;
+  } 
+  .Toastify__toast--error {
+    background: #dcbaba !important;
+  }

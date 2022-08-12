@@ -25,15 +25,17 @@ const FreeBooks = () => {
   return (
     <>
       {loader && <LoaderCircle />}
-        <div className="resultholder">
-          {books.map((book) => {
-            return (
-              <>
-                <DisplaySearched book={book} />
-              </>
-            );
-          })}
+      {loader ? <LoaderCircle /> : (
+          <div className="postedbookholder">
+          {
+          books?.length > 0 ? 
+           (books.map((book) =>  <DisplaySearched book={book} key={Math.random()} profile={true}/>))
+           :
+           (<DisplaySearched book={false} key={Math.random()} />)
+           }
         </div>
+        )
+      }
     </>
   );
 };

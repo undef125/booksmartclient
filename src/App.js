@@ -36,7 +36,7 @@ function App() {
     return (
         <DataProvider>
             <div className="App">
-              <ToastContainer limit={1} transition={ Slide }/>
+              <ToastContainer limit={1} transition={ Slide } height={100}/>
                 <Routes>
                     <Route path="/login" element={<Login setisAuthenticated={setisAuthenticated}/>} />
                     <Route path="/" element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
