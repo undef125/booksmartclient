@@ -1,11 +1,21 @@
 .footerholder{
-    background-color:rgba(128, 128, 128, 0.389);
+    /* background-color:rgba(128, 128, 128, 0.389); */
+    background-color: #002B5B;
     height:17vh;
-    justify-content: space-between;
+    justify-content: space-around;
     display: flex;
     padding: 1rem;
     position: sticky; 
     top: 100%;
+    color: white;
+}
+.footerleft{
+    border-right: 1px solid white;
+    padding-right: 1rem;
+}
+.footerright{
+    padding-left: 1rem;
+    border-left: 1px solid white;
 }
 .logoholder{
     height:17vh;
@@ -23,7 +33,6 @@
     justify-content: center;
     align-items: center;
     gap:15px;
-
 }
 .iconholder{
     height:50px;
@@ -41,4 +50,30 @@
     display: flex;
     justify-content: center;
     align-items:center;
+}
+
+@media screen and (max-width: 768px) {
+    .footerholder{
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+    }
+    .footerholder div {
+        border: 0px;
+    }
+    .iconsholder{
+        gap: 50px;
+    }
+}
+@media screen and (max-width: 468px) {
+    .iconsholder{
+        height: 85%;
+        width: 85%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:30px;
+    }
 }

@@ -1,6 +1,6 @@
 .viewdetaildet {
   width: 90%;
-  margin: 10vh auto auto auto;
+  margin: 10vh auto 10vh auto;
   display: flex;
   justify-content: center;
   /* align-items: center; */

@@ -12,10 +12,6 @@
     box-shadow: 1px 1px 4px black;
 } 
 
-.singlebook{
-    position: relative;
-}
-
 .viewdetholder{
     width: 100%;
     display: flex;
@@ -23,18 +19,6 @@
     align-items: center;
     margin-top: 3rem;
 }
-.singlebook button{
-    border-radius: 15px;
-    height: 35px;
-    width: 200px;
-    font-size: 1.1rem;
-    border: 0px;
-    cursor: pointer;
-    color: black;
-    position: absolute;
-    bottom: 0;
- }
- 
 .imageholder{
     width: 16rem;
     height: 16rem;
@@ -59,19 +43,6 @@
     margin: auto;
 }
 
-.wholefaculties >div{
-    display:flex;
-    width:80%;
-    margin:auto;
-    height:50vh;
-    padding:2rem;
-    justify-content: space-between;
-
-}
-.wholefaculties >div>div{
-    width:100%;
-
-}
 .imgholder{
     height:80%;
     width:80%;
@@ -90,16 +61,56 @@
 .btn{
     width:400px;
 }
-.right{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:15px;
-}
 .negotiable{
     display: flex;
     justify-content: space-between;
     width: 50%;
     font-weight: 600;
+}
+
+.backdropmaker{
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000064;
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.popmodelholder {
+    height: 18vh;
+    width: 20rem;
+    padding: 1.4rem;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.buttonsection{
+    display: flex;
+    width: 100%;
+    margin: auto;
+    justify-content: space-around;
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+.canceldeletionbtn,.confirmdelbtn{
+    background-color: #17c8209e;
+    border-radius: 0px;
+    border: 1px solid black;
+    color: black;
+    /* padding: 10px; */
+    width: 6rem;
+}
+.canceldeletionbtn:hover{
+    background-color: #17c820d0;
+}
+.confirmdelbtn{
+    background-color: #ff0000a1;
+}
+.confirmdelbtn:hover{
+    background-color: #ff0000d0;
 }

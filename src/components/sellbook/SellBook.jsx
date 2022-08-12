@@ -31,20 +31,20 @@ const SellBook = () => {
     } else {
       data.set("free", false);
     }
-
+    const id = toast.loading("requesting for posting book!");
     try{
       await axios.post("/postbook", data, {
       headers: {
         Authorization: getAccessToken(),
       },
     });
-    toast.success("Book posted for sell successfully", { autoClose: 1000, toastId:"sell1"});
+    toast.update(id, {render: "Book posted for sell successfully", type: "success", isLoading:false, autoClose: 1000, toastId: "ttowotw"});
     e.target.reset();
   } catch(error) {
     if(error.response.data.split("category:")[1] === undefined) {
-      toast.error("Fill all input fields", { autoClose: 1000, toastId:"sell1"});
+      toast.update(id, {render: "Fill all input fields", type: "error", isLoading:false, autoClose: 1000, toastId: "ttowotw"});
     }else {
-      toast.error(error.response.data.split("category:")[1], { autoClose: 1000, toastId:"sell2"});
+      toast.update(id, {render: error.response.data.split("category:")[1], type: "error", isLoading:false, autoClose: 1000, toastId: "ttowotw"});
     } 
   }
   };

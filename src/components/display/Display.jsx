@@ -6,9 +6,10 @@ import { toast } from "react-toastify";
 import axios from "../../api/api";
 import NotFound from "../notfound/NotFound";
 
-const DisplaySearched = ({ book, profile }) => {
+const DisplaySearched = ({ book, profile, message }) => {
 
   const navigate = useNavigate();
+  const [displaydelpop, setdisplaydelpop] = useState(false);
 
   const navigateToDetails = () => {
     navigate(`/details?q=${book._id}`);
@@ -20,6 +21,7 @@ const DisplaySearched = ({ book, profile }) => {
     });
   };
   const deleteBook = async () => {
+    const id = toast.loading("deleting in process!");
     try {
       await axios.delete(`/delete/${book._id}`, {
         headers: {
@@ -27,21 +29,45 @@ const DisplaySearched = ({ book, profile }) => {
           img: book.image,
         },
       });
-      toast.success("Book Deleted !", { autoClose: 1000, toastId: "posted1" });
-    } catch (error) {
-      toast.error("Cannot delete book !", {
-        autoClose: 1000,
-        toastId: "posted2",
-      });
+    toast.update(id, {render: "Book Deleted !", type: "success", isLoading:false, autoClose: 1000, toastId: "deleted"});
+  } catch (error) {
+      toast.update(id, {render: "Cannot delete book !", type: "error", isLoading:false, autoClose: 1000, toastId: "deleted"});
     }
   };
 
+  useEffect(() => {
+   
+  }, [displaydelpop])
+  
+
+
   return (
     <>
-      {!book ? (
-        <NotFound towarn="Sorry no books in this section yet..." />
-      ) : (
+        {displaydelpop && 
         <>
+        <div className="backdropmaker">
+          <div className="popmodelholder">
+            <div className="textremindingsection">
+              Are you sure you want to delete this book?
+            </div>
+            <div className="buttonsection">
+              <div className="cancel">
+                <button className="canceldeletionbtn" onClick={() => setdisplaydelpop(false)}>Cancel</button>
+              </div>
+              <div className="delete">
+                <button className="confirmdelbtn" onClick={ () => {
+                  setdisplaydelpop(false);
+                  deleteBook();
+                }}>Delete</button>
+              </div>
+            </div>
+          </div>
+          </div>
+        </>}
+      {!book ? (
+        <NotFound towarn={message || "Sorry no books in this section yet..."} />
+        ) : (
+          <>
           <div className="bookwraper">
             <div className="singlebook">
               <div className="imageholder" onClick={navigateToDetails}>
@@ -63,7 +89,9 @@ const DisplaySearched = ({ book, profile }) => {
                   <div className="editholder" onClick={navigateToUpdate}>
                     <img src="/edit.png" alt="" />
                   </div>
-                  <div className="deleteholder" onClick={deleteBook}>
+                  <div className="deleteholder" onClick={() => {
+                    setdisplaydelpop(true);
+                  }}>
                     <img src="/delete.png" alt="" />
                   </div>
                 </div>

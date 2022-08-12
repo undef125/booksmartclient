@@ -1,12 +1,13 @@
 import React, { useState, useRef } from "react";
 import axios from "../../api/api";
 import getAccessToken from "../../jwt/jwtauth";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const UpdateBook = () => {
   const location = useLocation();
   let book = location.state.book;
+  const navigate = useNavigate();
 
   const form = useRef(null);
   const [isacademic, setisacademic] = useState(false);
@@ -40,16 +41,18 @@ const UpdateBook = () => {
     } else {
       data.set("free", false);
     }    
+    const id = toast.loading("requesting for updating book!");
     try {
       await axios.post(`/update/${toupdate}`, data, {
       headers: {
         Authorization: getAccessToken(),
       },
     });
-    toast.success("updated book successfully!", { autoClose:1000 , toastId:"gg"} );
-    navigator('/profile');
+    toast.update(id, {render: "Book updated successfully", type: "success", isLoading:false, autoClose: 1000, toastId: "ttowotw"});
+    navigate('/profile');
     } catch (error) {
-      toast.error("error posting check all fields!", { autoClose:1000 , toastId:"gg"} )
+      console.log(error)
+      toast.update(id, {render: "error posting check all fields!", type: "error", isLoading:false, autoClose: 1000, toastId: "trtwsadfasd"});
     }
   };
 

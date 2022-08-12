@@ -40,7 +40,7 @@ const Searched = () => {
           books?.length > 0 ? 
            (books.map((book) =>  <DisplaySearched book={book} key={Math.random()} profile={true}/>))
            :
-           (<DisplaySearched book={false} key={Math.random()} />)
+           (<DisplaySearched book={false} message={"No any book found with that name"}key={Math.random()} />)
            }
         </div>
         )

@@ -9,8 +9,8 @@
 .bannerHolder > div{
     width: 100%;
 }
-.bannerHolder > right{
-    height:50vh;
+.bannerHolder > .right{
+    height: 75pxvh;
     width:100%;
 }
 
@@ -19,7 +19,7 @@
     width: 100%;
     object-fit: cover;
 }
-.left{
+.bannerHolder .left{
     display: flex;
     justify-content: center;
     align-items: center;

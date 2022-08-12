@@ -4,6 +4,7 @@ input {
 .formpage{
   width: 100%;
   margin-top: 5vh;
+  margin-bottom: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;

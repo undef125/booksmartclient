@@ -17,12 +17,12 @@ import { useState } from "react";
 import { ToastContainer,Slide } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-const PrivateRoute = ({isAuthenticated, ...props}) => {
+const PrivateRoute = ({isAuthenticated,setfooter,footer, ...props}) => {
     return isAuthenticated ? (
         <>
         <Navbar />
         <Outlet />
-        {/* <Footer /> */}
+        <Footer />
         </>
     ) : (
         <Navigate replace to="/login" />
@@ -32,15 +32,14 @@ const PrivateRoute = ({isAuthenticated, ...props}) => {
 function App() {
 
     const [isAuthenticated, setisAuthenticated] = useState(false);
-
     return (
         <DataProvider>
             <div className="App">
               <ToastContainer limit={1} transition={ Slide } height={100}/>
                 <Routes>
                     <Route path="/login" element={<Login setisAuthenticated={setisAuthenticated}/>} />
-                    <Route path="/" element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
-                        <Route path="/" element={<Home />} />
+                    <Route path="/" element={<PrivateRoute isAuthenticated={isAuthenticated}/>}>
+                        <Route path="/" element={<Home/>} />
                         <Route path="/search" element={<Searched />} />
                         <Route path="/details" element={<Details />} />
                         <Route path="/sellbook" element={<SellBook />} />

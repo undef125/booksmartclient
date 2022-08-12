@@ -1,26 +1,35 @@
 .wholefaculties{
     overflow: hidden;
 }
-.sectionHolder{
-     width: 80%;
-     margin: auto;
-     margin-top: 1rem;
-}
-
-.upper,.nameprice {
+.oddfaculties , .evenfaculties {
     display: flex;
-    justify-content: space-between;
+    margin: 2rem auto;
+    align-items: center;
+    justify-content: center;
 }
-.booksHolder {
-    display: flex;
-    gap: .6rem;
-    width: 100%;
-}
-.btn {
-    width: 100%;
-    /* background-color: red; */
+.oddfaculties .left, .evenfaculties .right {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+.oddfaculties .right, .evenfaculties .left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wholefaculties img{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: .3rem 0;
 }
 .btn > button {
     width: 60%;
@@ -31,20 +40,18 @@
 }
 
 @media screen and (max-width: 768px) {
-    .oddfaculties,.evenfaculties {
-        display: flex;
-    }
     .oddfaculties {
         flex-wrap: wrap;
     }
     .evenfaculties {
         flex-wrap: wrap-reverse;
     }
+    .wholefaculties img{
+        width: 100%;
+        object-fit: cover;
+    }
 }
 @media screen and (max-width: 468px) {
-    .oddfaculties,.evenfaculties {
-        display: flex;
-    }
     .oddfaculties {
         flex-wrap: wrap;
     }

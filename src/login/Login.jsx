@@ -36,16 +36,19 @@ const Login = ({ setisAuthenticated }) => {
       email.trim("") === "" ||
       password.trim("") === ""
     ) {
-      toast.warning("Please fill all the input field", { autoClose: 1000, toastId: "validate1"});
+      toast.warning("Please fill all the input field", { autoClose: 800, toastId: "turn"});
+    } else if(!/^[\w.+\-]+@gmail\.com$/g.test(email)) {
+      toast.warning("Please use valid email account!", { autoClose: 800, toastId: "validate34"} )
     } else {
+      const id = toast.loading("sending otp request!");
       try {
           await axios.post("/getotp", {
               name: name,
               email: email,
             });
-            toast.success("OTP Sent!",{autoClose: 1000});
-      } catch (error) {
-        toast.error(error.response.data.message,{autoClose: 1000,toastId: "once"});
+            toast.update(id, {render: "OTP Sent!", type: "success", isLoading:false, autoClose: 1000, toastId: "ttowotw"});
+          } catch (error) {
+        toast.update(id, {render: error.response.data.message, type: "error", isLoading:false, autoClose: 1000,toastId: "once"});
       }
     }
   };

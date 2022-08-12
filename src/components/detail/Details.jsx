@@ -34,9 +34,10 @@ const Details = () => {
     };
     fetchBook();
   }, []);
+
   const navigateToUpdate = () => {
-    navigate(`/updatebook?q=${book._id}`, {
-      state: { book: book },
+    navigate(`/updatebook?q=${book[0]._id}`, {
+      state: { book: book[0] },
     });
   };
   const deleteBook = async () => {

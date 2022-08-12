@@ -8,7 +8,6 @@ import "./unacademicstyle.css";
 const UnacademicBooks = () => {
   const [books, setBooks] = useState([]);
   const [loader, setloader] = useState(false);
-
   useEffect(() => {
     const fetchBook = async () => {
       //getting value from url query
