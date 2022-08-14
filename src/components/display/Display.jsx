@@ -43,6 +43,7 @@ const DisplaySearched = ({ book, profile, message }) => {
 
   return (
     <>
+    {console.log(book)}
         {displaydelpop && 
         <>
         <div className="backdropmaker">

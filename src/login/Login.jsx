@@ -12,8 +12,8 @@ const Login = ({ setisAuthenticated }) => {
 
   const [toggle, settoggle] = useState("login");
   const [name, setname] = useState("");
-  const [email, setemail] = useState("kapilrandom55@gmail.com");
-  const [password, setpassword] = useState("kapil");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
   const [otp, setotp] = useState("");
   const [loader, setloader] = useState(false);
 
