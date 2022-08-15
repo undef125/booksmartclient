@@ -29,7 +29,7 @@ const FreeBooks = () => {
           <div className="postedbookholder">
           {
           books?.length > 0 ? 
-           (books.map((book) =>  <DisplaySearched book={book} key={Math.random()} profile={true}/>))
+           (books.map((book) =>  <DisplaySearched book={book} key={Math.random()} profile={false}/>))
            :
            (<DisplaySearched book={false} key={Math.random()} />)
            }

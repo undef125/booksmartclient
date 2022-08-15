@@ -1,7 +1,7 @@
 .footerholder{
     /* background-color:rgba(128, 128, 128, 0.389); */
     background-color: #002B5B;
-    height:17vh;
+    height:12vh;
     justify-content: space-around;
     display: flex;
     padding: 1rem;
@@ -18,7 +18,7 @@
     border-left: 1px solid white;
 }
 .logoholder{
-    height:17vh;
+    height:12vh;
     width:170px;
 }
 .logoholder > img{
@@ -32,11 +32,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:15px;
+    gap:20px;
 }
 .iconholder{
-    height:50px;
-    width:50px;
+    height:40px;
+    width:40px;
+    cursor: pointer;
 }
 .iconholder>img{
     height:100%;

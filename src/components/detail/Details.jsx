@@ -14,6 +14,19 @@ const Details = () => {
   const [samePerson, setsamePerson] = useState(false);
 
   useEffect(() => {
+    // const fetchBookBySeller = async() => {
+    //   console.log(book[0]?.seller);
+    //   try {
+    //     let res = await axios.get(`/getbook/${book[0]?.seller}`, {
+    //       headers: {
+    //         Authorization: getAccessToken(),
+    //       },
+    //     });
+    //     console.log(res.data)
+    //   } catch (error) {
+    //     console.log("error ff: " + error);
+    //   }
+    // }
     const fetchBook = async () => {
       try {
         let search = window.location.search;
@@ -32,6 +45,7 @@ const Details = () => {
         console.log("error: " + error);
       }
     };
+    
     fetchBook();
   }, []);
 
@@ -132,6 +146,16 @@ const Details = () => {
           </div>
         </div>
       ) : null}
+      {/* <div className="postedbookholder">
+              {postedBooks?.length > 0 ? (
+                postedBooks.map((book) => (
+                  <DisplaySearched
+                    book={book}
+                    key={Math.random()}
+                    profile={true}
+                  />
+                )) ) : null }
+        </div> */}
     </>
   );
 };

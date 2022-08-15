@@ -2,15 +2,18 @@
     width: 16rem;
     height: auto;
     padding: .5rem;
-    box-shadow: 1px 1px 4px rgb(115, 162, 189);
     background-color: white;
     border-radius: 10px 10px 3px 3px;
     transition: box-shadow .2s ease-in-out;
+    box-shadow: .1px .1px 4px rgb(63, 63, 63);
 }
 
  .bookwraper:hover {
     box-shadow: 1px 1px 4px black;
 } 
+.seller{
+    display: flex;
+}
 
 .viewdetholder{
     width: 100%;
@@ -52,7 +55,11 @@
     height: 100%;
     width:100%;
 }
-
+.negotiable  p,.seller p{
+    font-weight: 600;
+    color: grey;
+    font-size: .9rem;
+}
 .facultyname{
     font-size:3rem ;
     font-weight: 600;
@@ -65,7 +72,6 @@
     display: flex;
     justify-content: space-between;
     width: 50%;
-    font-weight: 600;
 }
 
 .backdropmaker{

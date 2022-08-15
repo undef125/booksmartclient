@@ -32,6 +32,9 @@ button {
   width: 100%;
   color: white;
 }
+button:hover {
+  color: black;
+}
 .btnholder{
     display: flex;
     justify-content: center;
