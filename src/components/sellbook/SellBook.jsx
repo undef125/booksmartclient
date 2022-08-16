@@ -5,6 +5,7 @@ import getAccessToken from "../../jwt/jwtauth";
 import { useContext } from "react";
 import { DataContext } from "./../../context/DataProvider";
 import { toast } from "react-toastify";
+import { v4 as uuidv4} from "uuid"
 
 const SellBook = () => {
   const form = useRef(null);
@@ -13,19 +14,41 @@ const SellBook = () => {
   const [negotiable, setnegotiable] = useState(false);
   const [unacademic, setunacademic] = useState(false);
   const [free, setfree] = useState(false);
-
+  
   const { userName, userId } = useContext(DataContext);
+  
+  const validatefile = () => {
+    let length = image.split(".").length;
+    return ["png", "jpg", "jpeg"].includes(image.split(".")[length-1])
+
+  }
 
   const saveToDb = async (e) => {
     //for image using form data
     e.preventDefault();
+    if(!validatefile()) {
+      toast.error("Not valid image file!", {autoClose: 800, toastId: "imagevalidation"})
+      return
+    };
     const data = new FormData(form.current);
+    let key, value,finalname,pic;
+    for ([key, value] of data.entries()) {
+      let val;
+      if (value instanceof File) {
+        pic = value;
+        let array = value.name.split(".");
+        array.splice(0,1, `${value.name.split(".")[0]}${uuidv4()}`);    //generating random image name
+        val = array.join(".");
+        finalname = array.join(".");
+        break;
+      }
+    }
+    data.set("image", pic, finalname);        //setting random image name
     data.delete("negotiable"); //getting away from bool cast error
     data.append("seller", userName);
     data.append("sellerid", userId);
     data.append("negotiable", negotiable);
     if (data.get("price") === null) {
-      console.log("it's free");
       data.set("free", true);
       data.set("price", 0);
     } else {

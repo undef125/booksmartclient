@@ -1,7 +1,7 @@
 div[data-testid="triangle-loading"]{
     position: absolute;
     padding: 0;
-    height: 100vh;
+    height: 120vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.423) ;
     justify-content: center;
@@ -10,7 +10,7 @@ div[data-testid="triangle-loading"]{
 div[data-testid="tail-spin-loading"]{
     position: absolute;
     padding: 0;
-    height: 100vh;
+    height: 120vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.09) ;
     justify-content: center;

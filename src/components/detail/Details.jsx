@@ -94,7 +94,7 @@ const Details = () => {
           <div className="leftdetailsectiondet">
             <div className="imageHolderdet">
               <img
-                src={`https://serverbooksmart.herokuapp.com/${book[0].image}`}
+                src={`http://localhost:5000/${book[0].image}`}
                 alt=""
               />
             </div>

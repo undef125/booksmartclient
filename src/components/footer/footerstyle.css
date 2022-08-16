@@ -1,13 +1,12 @@
 .footerholder{
-    /* background-color:rgba(128, 128, 128, 0.389); */
-    background-color: #002B5B;
-    height:12vh;
+    background-color: #EAE3D2;
+    height:10vh;
     justify-content: space-around;
     display: flex;
     padding: 1rem;
     position: sticky; 
-    top: 100%;
-    color: white;
+    top: 130%;
+    color: black;
 }
 .footerleft{
     border-right: 1px solid white;
@@ -18,7 +17,7 @@
     border-left: 1px solid white;
 }
 .logoholder{
-    height:12vh;
+    height:11vh;
     width:170px;
 }
 .logoholder > img{
@@ -38,6 +37,10 @@
     height:40px;
     width:40px;
     cursor: pointer;
+    transition: transform .2s ease-in-out;
+}
+.iconholder:hover {
+    transform: scale(1.1);
 }
 .iconholder>img{
     height:100%;
