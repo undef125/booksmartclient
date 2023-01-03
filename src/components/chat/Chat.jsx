@@ -5,7 +5,7 @@ import "./chatstyle.css";
 import io from "socket.io-client";
 
 // const socket = io.connect("http://localhost:5000", { secure: true }); //development
-const socket = io.connect("https://serverbooksmart.herokuapp.com", { secure: true });             //production
+// const socket = io.connect("https://serverbooksmart.herokuapp.com", { secure: true });             //production
 
 let chatId = "";
 
@@ -36,17 +36,17 @@ const Chat = () => {
     } catch (error) {
       console.log("error: " + error);
     }
-    await socket.emit("send_message", messagetosend);
+    // await socket.emit("send_message", messagetosend);
     getMessages();
   };
 
-  useEffect(() => {
-    socket.on("receive_message", (messageobj) => {
-      if (messageobj) {
-        getMessages();
-      }
-    });
-  }, [socket]);
+  // useEffect(() => {
+  //   socket.on("receive_message", (messageobj) => {
+  //     if (messageobj) {
+  //       getMessages();
+  //     }
+  //   });
+  // }, [socket]);
 
   useEffect(() => {
 
@@ -63,9 +63,9 @@ const Chat = () => {
   }, []);
 
   //socket.io configurations
-  const joinRoom = (id) => {
-    socket.emit("join_room", id);
-  };
+  // const joinRoom = (id) => {
+  //   socket.emit("join_room", id);
+  // };
 
   return (
     <div className="chatcontainer">
