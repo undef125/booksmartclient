@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "https://serverbooksmart.herokuapp.com/",
+    baseURL: "https://web-production-59b7.up.railway.app/",
     // baseURL: "http://localhost:5000",
     },
 );
