@@ -79,7 +79,7 @@ const Chat = () => {
                     className="name"
                     onClick={() => {
                       chatId = chat._id;
-                      joinRoom(chat._id);
+                      // joinRoom(chat._id);
                       setShowMessageSection(true);
                       getMessages();
                     }}
