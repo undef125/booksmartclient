@@ -72,7 +72,7 @@ const DisplaySearched = ({ book, profile, message }) => {
             <div className="singlebook">
               <div className="imageholder" onClick={navigateToDetails}>
                 <img
-                  src={`http://localhost:5000/${book.image}`}
+                  src={`https://booksmart-97gk.onrender.com/${book.image}`}
                   // src={`https://serverbooksmart.herokuapp.com/${book.image}`}
                   alt=""
                 />
